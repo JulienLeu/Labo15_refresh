@@ -1,10 +1,9 @@
 /* Fichier : Labo15_main.c
  * Auteur  : Julien Leuenberger et Quentin Müller
- * Date    : 12.12.2018
+ * Date    : 18.12.2018
  *
- * Description :	Afficher sur des 7 segements
- *						-
- *						-
+ * Description :	Programme qui gère un tableau de 
+ *					scores externe. 
  *
  * Remarque(s) :
  *
@@ -138,14 +137,16 @@ int main(void)
 	} while (choix_menu != 0);
 	return EXIT_SUCCESS;
 }
-
+//-----------------------------------------------------------------------------
+// Cette fonction écrit sur un registre une valeur saisie par l'utilisateur
 void write_on_register(void)
 {
 	unsigned short adresse = saisirEntier("Adresse [0xF000 -0xF003] : ");
 	unsigned char valeur = saisirEntier("Valeur a afficher : ");
 	write_register(adresse, valeur);
 }
-
+//-----------------------------------------------------------------------------
+// Cette fonction affiche un chiffre sur l'afficheur externe
 void afficher_chiffre(int numero_afficheur, char caractere)
 {
 	int adresse, chiffre;
@@ -209,6 +210,9 @@ void afficher_chiffre(int numero_afficheur, char caractere)
 	write_register(adresse, chiffre);
 }
 
+//-----------------------------------------------------------------------------
+// Cette fonction affiche une valeur [-9 et 99] sur un groupe de l'afficheur
+// externe
 void afficher_valeur(int groupe_afficheur, int valeur)
 {
 	int address0, address1, dizaines, unites;
@@ -319,6 +323,8 @@ void afficher_valeur(int groupe_afficheur, int valeur)
 	afficher_chiffre(address1, valeur1);
 }
 
+//-----------------------------------------------------------------------------
+// Cette fonction lit la valeur du registre 0xF010
 void read_on_register(void)
 {
 	int Infini = 1, val_reg = 0, val_reg_old = 0;
@@ -339,6 +345,8 @@ void read_on_register(void)
 	}
 }
 
+//-----------------------------------------------------------------------------
+// Cette fonction gère un l'affichage du tableau en fonction des boutons
 void gerer_tableau(int val_1, int val_2)
 {
 	int Infini = 1, val_reg, val_reg_old = 0;
