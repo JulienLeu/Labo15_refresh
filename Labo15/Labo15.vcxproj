@@ -115,6 +115,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Labo15_main.c" />
+    <ClCompile Include="outils_saisie.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="outils_saisie.h" />
+    <ClInclude Include="simulateurScore.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
